@@ -1,0 +1,957 @@
+{
+  "simulation_settings": {
+    "dt": 0.01,
+    "time_speed": 5,
+    "air_resistance_enabled": true,
+    "Cd": 0.5,
+    "cross_section_area_m2": 1.0,
+    "earth_radius_m": 6371000.0,
+    "g0": 9.80665
+  },
+
+  "rocket_common_specs": {
+    "dry_mass_kg": 500.0,
+    "total_propellant_mass_kg": 2000.0,
+    "engine_thrust_N": 40000.0
+  },
+
+  "propellants": {
+    "Hydrogen_LOX": {
+      "name": "液体水素 + 液体酸素 (LH2/LOX)",
+      "isp_sec": 450.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "Methane_LOX": {
+      "name": "液化メタン + 液体酸素",
+      "isp_sec": 369.0,
+      "mixture_ratio_o_f": 3.45,
+      "state_type": "液体"
+    },
+
+    "Kerosene_LOX": {
+      "name": "液体ケロシン + 液体酸素 (RP-1/LOX)",
+      "isp_sec": 358.0,
+      "mixture_ratio_o_f": 2.77,
+      "state_type": "液体"
+    },
+
+    "Ethanol_LOX": {
+      "name": "エタノール + 液体酸素",
+      "isp_sec": 338.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "Methanol_LOX": {
+      "name": "メタノール + 液体酸素",
+      "isp_sec": 310.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "Propane_LOX": {
+      "name": "プロパン + 液体酸素",
+      "isp_sec": 365.0,
+      "mixture_ratio_o_f": 4.3,
+      "state_type": "液体"
+    },
+
+    "Fluorine_Hydrogen": {
+      "name": "液体フッ素 + 液体水素 (LF2/H2)",
+      "isp_sec": 410.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "N2O4_UDMH": {
+      "name": "四酸化二窒素 + 非対称ジメチルヒドラジン (UDMH)",
+      "isp_sec": 342.0,
+      "mixture_ratio_o_f": 1.95,
+      "state_type": "液体"
+    },
+
+    "N2O4_MMH": {
+      "name": "四酸化二窒素 + モノメチルヒドラジン (MMH)",
+      "isp_sec": 341.0,
+      "mixture_ratio_o_f": 2.37,
+      "state_type": "液体"
+    },
+
+    "N2O4_UH25": {
+      "name": "四酸化二窒素 + UH25",
+      "isp_sec": 340.0,
+      "mixture_ratio_o_f": 2.15,
+      "state_type": "液体"
+    },
+
+    "N2O4_Aerozine50": {
+      "name": "四酸化二窒素 + エアロジン50",
+      "isp_sec": 320.0,
+      "mixture_ratio_o_f": 1.75,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_UDMH": {
+      "name": "硝酸 + 非対称ジメチルヒドラジン (UDMH)",
+      "isp_sec": 330.0,
+      "mixture_ratio_o_f": 1.6,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_MMH": {
+      "name": "硝酸 + モノメチルヒドラジン (MMH)",
+      "isp_sec": 330.0,
+      "mixture_ratio_o_f": 1.7,
+      "state_type": "液体"
+    },
+
+    "H2O2_RP1": {
+      "name": "高濃度過酸化水素 (90%) + ケロシン (RP-1)",
+      "isp_sec": 276.0,
+      "mixture_ratio_o_f": 7.0,
+      "state_type": "液体"
+    },
+
+    "H2O2_Ethanol": {
+      "name": "高濃度過酸化水素 (90%) + エタノール",
+      "isp_sec": 250.0,
+      "mixture_ratio_o_f": 8.0,
+      "state_type": "液体"
+    },
+
+    "N2O_Ethanol": {
+      "name": "亜酸化窒素 + エタノール",
+      "isp_sec": 255.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "N2O_HTPB": {
+      "name": "亜酸化窒素 + HTPB (ハイブリッド)",
+      "isp_sec": 250.0,
+      "mixture_ratio_o_f": 7.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "H2O2_Hydrazine": {
+      "name": "高濃度過酸化水素 (90%) + ヒドラジン",
+      "isp_sec": 335.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "Black_Powder": {
+      "name": "黒色火薬",
+      "isp_sec": 80.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "APCP": {
+      "name": "アンモニウムペルオキシド複合推進薬 (APCP)",
+      "isp_sec": 250.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "AP_HTPB": {
+      "name": "アンモニウムペルオキシド + HTPB",
+      "isp_sec": 230.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "Double_Base": {
+      "name": "二成分固体推進薬 (ニトロセルロース/ニトログリセリン)",
+      "isp_sec": 240.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "KNO3_Sugar": {
+      "name": "硝酸カリウム + 砂糖 (ロケットキャンディ)",
+      "isp_sec": 90.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "Zn_Sulfur": {
+      "name": "亜鉛 + 硫黄",
+      "isp_sec": 25.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "AN_Composite": {
+      "name": "アンモニウム硝酸塩系固体推進薬",
+      "isp_sec": 180.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "PTFE_Al": {
+      "name": "ポリテトラフルオロエチレン (PTFE) + アルミニウム",
+      "isp_sec": 100.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "LOX_HTPB": {
+      "name": "液体酸素 + HTPB (ハイブリッド)",
+      "isp_sec": 260.0,
+      "mixture_ratio_o_f": 3.5,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_HTPB_Al": {
+      "name": "液体酸素 + HTPB/Al (ハイブリッド)",
+      "isp_sec": 274.0,
+      "mixture_ratio_o_f": 3.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_Paraffin": {
+      "name": "液体酸素 + パラフィン (ハイブリッド)",
+      "isp_sec": 281.0,
+      "mixture_ratio_o_f": 4.5,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_Carbon": {
+      "name": "液体酸素 + 炭素 (ハイブリッド)",
+      "isp_sec": 249.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_Sucrose": {
+      "name": "液体酸素 + シュクロース (ハイブリッド)",
+      "isp_sec": 247.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "N2O_Nitromethane": {
+      "name": "亜酸化窒素 + ニトロメタン",
+      "isp_sec": 320.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "液体"
+    },
+
+    "H2O2_Methanol": {
+      "name": "高濃度過酸化水素 (90%) + メタノール",
+      "isp_sec": 280.0,
+      "mixture_ratio_o_f": 7.0,
+      "state_type": "液体"
+    },
+
+    "Isopropanol_LOX": {
+      "name": "イソプロパノール + 液体酸素",
+      "isp_sec": 330.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "Butane_LOX": {
+      "name": "ブタン + 液体酸素",
+      "isp_sec": 362.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "Ethylene_LOX": {
+      "name": "エチレン + 液体酸素",
+      "isp_sec": 350.0,
+      "mixture_ratio_o_f": 4.5,
+      "state_type": "液体"
+    },
+
+    "Acetylene_LOX": {
+      "name": "アセチレン + 液体酸素",
+      "isp_sec": 340.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "Ozone_Hydrogen": {
+      "name": "オゾン + 液体水素",
+      "isp_sec": 450.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "液体"
+    },
+
+    "Fluorine_Ammonia": {
+      "name": "液体フッ素 + アンモニア",
+      "isp_sec": 380.0,
+      "mixture_ratio_o_f": 8.0,
+      "state_type": "液体"
+    },
+
+    "Methane_Air": {
+      "name": "メタン + 空気",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Kerosene_Air": {
+      "name": "ケロシン + 空気",
+      "isp_sec": 280.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Ethanol_Air": {
+      "name": "エタノール + 空気",
+      "isp_sec": 260.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "気体"
+    },
+
+    "H2O2_HTPB": {
+      "name": "高濃度過酸化水素 (90%) + HTPB (ハイブリッド)",
+      "isp_sec": 270.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_PE": {
+      "name": "液体酸素 + ポリエチレン (ハイブリッド)",
+      "isp_sec": 275.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "N2O_PTFE": {
+      "name": "亜酸化窒素 + PTFE (ハイブリッド)",
+      "isp_sec": 200.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_Diborane": {
+      "name": "液体酸素 + 二ホウ化水素",
+      "isp_sec": 400.0,
+      "mixture_ratio_o_f": 8.0,
+      "state_type": "液体"
+    },
+
+    "LOX_Ozone": {
+      "name": "液体酸素 + オゾン",
+      "isp_sec": 360.0,
+      "mixture_ratio_o_f": 2.0,
+      "state_type": "液体"
+    },
+
+    "LOX_Ammonia": {
+      "name": "液体酸素 + アンモニア",
+      "isp_sec": 290.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "N2O_Methane": {
+      "name": "亜酸化窒素 + メタン",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "N2O4_Hydrazine": {
+      "name": "四酸化二窒素 + ヒドラジン",
+      "isp_sec": 330.0,
+      "mixture_ratio_o_f": 1.8,
+      "state_type": "液体"
+    },
+
+    "LOX_TEA": {
+      "name": "液体酸素 + 三エチルアルミニウム",
+      "isp_sec": 370.0,
+      "mixture_ratio_o_f": 25.0,
+      "state_type": "液体"
+    },
+
+    "LOX_Hydrazine": {
+      "name": "液体酸素 + ヒドラジン",
+      "isp_sec": 340.0,
+      "mixture_ratio_o_f": 2.5,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_Hydrazine": {
+      "name": "硝酸 + ヒドラジン",
+      "isp_sec": 320.0,
+      "mixture_ratio_o_f": 2.0,
+      "state_type": "液体"
+    },
+
+    "H2O2_UDMH": {
+      "name": "高濃度過酸化水素 (90%) + 非対称ジメチルヒドラジン",
+      "isp_sec": 320.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "H2O2_MMH": {
+      "name": "高濃度過酸化水素 (90%) + モノメチルヒドラジン",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "H2O2_B2H6": {
+      "name": "高濃度過酸化水素 (90%) + 二ホウ化水素",
+      "isp_sec": 345.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "N2O_RP1": {
+      "name": "亜酸化窒素 + ケロシン (RP-1)",
+      "isp_sec": 270.0,
+      "mixture_ratio_o_f": 3.0,
+      "state_type": "液体"
+    },
+
+    "N2O_Methanol": {
+      "name": "亜酸化窒素 + メタノール",
+      "isp_sec": 280.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "N2O_Ammonia": {
+      "name": "亜酸化窒素 + アンモニア",
+      "isp_sec": 200.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "N2O_Hydrogen": {
+      "name": "亜酸化窒素 + 液体水素",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "液体"
+    },
+
+    "Fluorine_Methane": {
+      "name": "液体フッ素 + 液化メタン",
+      "isp_sec": 400.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "Fluorine_Ethane": {
+      "name": "液体フッ素 + エタン",
+      "isp_sec": 380.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "Fluorine_Propane": {
+      "name": "液体フッ素 + プロパン",
+      "isp_sec": 370.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "Hydrogen_Air": {
+      "name": "水素 + 空気",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Ammonia_Air": {
+      "name": "アンモニウム + 空気",
+      "isp_sec": 200.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Methanol_Air": {
+      "name": "メタノール + 空気",
+      "isp_sec": 270.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Isopropanol_Air": {
+      "name": "イソプロパノール + 空気",
+      "isp_sec": 260.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Propane_Air": {
+      "name": "プロパン + 空気",
+      "isp_sec": 280.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Butane_Air": {
+      "name": "ブタン + 空気",
+      "isp_sec": 270.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Ethylene_Air": {
+      "name": "エチレン + 空気",
+      "isp_sec": 250.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Acetylene_Air": {
+      "name": "アセチレン + 空気",
+      "isp_sec": 240.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "N2O_Sucrose": {
+      "name": "亜酸化窒素 + シュクロース (ハイブリッド)",
+      "isp_sec": 260.0,
+      "mixture_ratio_o_f": 7.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "H2O2_Sucrose": {
+      "name": "高濃度過酸化水素 (90%) + シュクロース (ハイブリッド)",
+      "isp_sec": 220.0,
+      "mixture_ratio_o_f": 8.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_Wax": {
+      "name": "液体酸素 + ワックス (ハイブリッド)",
+      "isp_sec": 280.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "AN_HTPB": {
+      "name": "硝酸アンモニウム + HTPB",
+      "isp_sec": 200.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "KClO4_Sugar": {
+      "name": "過塩素酸カリウム + 砂糖 (ロケットキャンディ)",
+      "isp_sec": 100.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "ClF3_Hydrazine": {
+      "name": "三フッ化塩素 + ヒドラジン",
+      "isp_sec": 400.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "液体"
+    },
+
+    "ClF3_UDMH": {
+      "name": "三フッ化塩素 + 非対称ジメチルヒドラジン",
+      "isp_sec": 390.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "液体"
+    },
+
+    "NF3_Hydrazine": {
+      "name": "三フッ化窒素 + ヒドラジン",
+      "isp_sec": 320.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "液体"
+    },
+
+    "Fluorine_UDMH": {
+      "name": "液体フッ素 + 非対称ジメチルヒドラジン (LF2/UDMH)",
+      "isp_sec": 360.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "Fluorine_MMH": {
+      "name": "液体フッ素 + モノメチルヒドラジン (LF2/MMH)",
+      "isp_sec": 355.0,
+      "mixture_ratio_o_f": 6.5,
+      "state_type": "液体"
+    },
+
+    "Fluorine_Hydrazine": {
+      "name": "液体フッ素 + ヒドラジン (LF2/N2H4)",
+      "isp_sec": 380.0,
+      "mixture_ratio_o_f": 8.0,
+      "state_type": "液体"
+    },
+
+    "LOX_RDX": {
+      "name": "液体酸素 + RDX (ハイブリッド)",
+      "isp_sec": 290.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_HMX": {
+      "name": "液体酸素 + HMX (ハイブリッド)",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "N2O_RDX": {
+      "name": "亜酸化窒素 + RDX (ハイブリッド)",
+      "isp_sec": 240.0,
+      "mixture_ratio_o_f": 7.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "N2O_HMX": {
+      "name": "亜酸化窒素 + HMX (ハイブリッド)",
+      "isp_sec": 250.0,
+      "mixture_ratio_o_f": 7.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "NitricAcid_Aniline": {
+      "name": "硝酸 + アニリン",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 2.5,
+      "state_type": "液体"
+    },
+
+    "N2O4_RP1": {
+      "name": "四酸化二窒素 + ケロシン (RP-1)",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 3.0,
+      "state_type": "液体"
+    },
+
+    "N2O4_Methanol": {
+      "name": "四酸化二窒素 + メタノール",
+      "isp_sec": 290.0,
+      "mixture_ratio_o_f": 3.5,
+      "state_type": "液体"
+    },
+
+    "N2O4_Ethanol": {
+      "name": "四酸化二窒素 + エタノール",
+      "isp_sec": 295.0,
+      "mixture_ratio_o_f": 3.5,
+      "state_type": "液体"
+    },
+
+    "H2O2_RDX": {
+      "name": "高濃度過酸化水素 (90%) + RDX (ハイブリッド)",
+      "isp_sec": 230.0,
+      "mixture_ratio_o_f": 8.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "H2O2_HMX": {
+      "name": "高濃度過酸化水素 (90%) + HMX (ハイブリッド)",
+      "isp_sec": 240.0,
+      "mixture_ratio_o_f": 8.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_AN": {
+      "name": "液体酸素 + アンモニウム硝酸 (ハイブリッド)",
+      "isp_sec": 260.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "LOX_AP": {
+      "name": "液体酸素 + アンモニウムペルオキシド (ハイブリッド)",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "N2O_AP": {
+      "name": "亜酸化窒素 + アンモニウムペルオキシド (ハイブリッド)",
+      "isp_sec": 240.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "ハイブリッド"
+    },
+
+    "NitricAcid_Aerozine50": {
+      "name": "硝酸 + エアロジン50",
+      "isp_sec": 310.0,
+      "mixture_ratio_o_f": 2.5,
+      "state_type": "液体"
+    },
+
+    "LOX_DME": {
+      "name": "液体酸素 + ジメチルエーテル (DME)",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_DME": {
+      "name": "硝酸 + ジメチルエーテル (DME)",
+      "isp_sec": 250.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "N2O4_DME": {
+      "name": "四酸化二窒素 + ジメチルエーテル (DME)",
+      "isp_sec": 260.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "N2O_DME": {
+      "name": "亜酸化窒素 + ジメチルエーテル (DME)",
+      "isp_sec": 250.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "DME_Air": {
+      "name": "ジメチルエーテル (DME) + 空気",
+      "isp_sec": 260.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "Hydrazine_Air": {
+      "name": "ヒドラジン + 空気",
+      "isp_sec": 200.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "UDMH_Air": {
+      "name": "非対称ジメチルヒドラジン + 空気",
+      "isp_sec": 220.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "NitricAcid_Ammonia": {
+      "name": "硝酸 + アンモニア",
+      "isp_sec": 170.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_Ethanol": {
+      "name": "硝酸 + エタノール",
+      "isp_sec": 230.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_Methanol": {
+      "name": "硝酸 + メタノール",
+      "isp_sec": 240.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_Kerosene": {
+      "name": "硝酸 + ケロシン",
+      "isp_sec": 250.0,
+      "mixture_ratio_o_f": 3.0,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_TEA": {
+      "name": "硝酸 + 三エチルアルミニウム",
+      "isp_sec": 340.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_Fluorine": {
+      "name": "硝酸 + 液体フッ素",
+      "isp_sec": 350.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "液体"
+    },
+
+    "NitricAcid_Hydrogen": {
+      "name": "硝酸 + 液体水素",
+      "isp_sec": 410.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "N2O4_Ammonia": {
+      "name": "四酸化二窒素 + アンモニア",
+      "isp_sec": 310.0,
+      "mixture_ratio_o_f": 3.5,
+      "state_type": "液体"
+    },
+
+    "LOX_MMH": {
+      "name": "液体酸素 + モノメチルヒドラジン",
+      "isp_sec": 340.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "LOX_UH25": {
+      "name": "液体酸素 + UH25",
+      "isp_sec": 330.0,
+      "mixture_ratio_o_f": 3.0,
+      "state_type": "液体"
+    },
+
+    "LOX_Aerozine50": {
+      "name": "液体酸素 + エアロジン50",
+      "isp_sec": 350.0,
+      "mixture_ratio_o_f": 3.5,
+      "state_type": "液体"
+    },
+
+    "N2O4_NH3": {
+      "name": "四酸化二窒素 + アンモニア",
+      "isp_sec": 280.0,
+      "mixture_ratio_o_f": 3.5,
+      "state_type": "液体"
+    },
+
+    "Ethane_Air": {
+      "name": "エタン + 空気",
+      "isp_sec": 250.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "気体"
+    },
+
+    "N2O_Ethylene": {
+      "name": "亜酸化窒素 + エチレン",
+      "isp_sec": 230.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "N2O_Acetylene": {
+      "name": "亜酸化窒素 + アセチレン",
+      "isp_sec": 220.0,
+      "mixture_ratio_o_f": 5.0,
+      "state_type": "液体"
+    },
+
+    "HMX_RDX": {
+      "name": "HMX + RDX (固体推進薬)",
+      "isp_sec": 280.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "KClO4_Al": {
+      "name": "過塩素酸カリウム + アルミニウム",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "HMX_HTPB": {
+      "name": "HMX + HTPB (固体推進薬)",
+      "isp_sec": 280.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "RDX_HTPB": {
+      "name": "RDX + HTPB (固体推進薬)",
+      "isp_sec": 270.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "HMX_Al": {
+      "name": "HMX + アルミニウム (固体推進薬)",
+      "isp_sec": 290.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "RDX_Al": {
+      "name": "RDX + アルミニウム (固体推進薬)",
+      "isp_sec": 280.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "AN_AP": {
+      "name": "アンモニウム硝酸 + アンモニウムペルオキシド (固体推進薬)",
+      "isp_sec": 190.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "AN_AP_Composite": {
+      "name": "アンモニウム硝酸 + アンモニウムペルオキシド + HTPB (固体推進薬)",
+      "isp_sec": 190.0,
+      "mixture_ratio_o_f": 1.0,
+      "state_type": "固体"
+    },
+
+    "ClF3_Methane": {
+      "name": "三フッ化塩素 + メタン",
+      "isp_sec": 360.0,
+      "mixture_ratio_o_f": 8.0,
+      "state_type": "液体"
+    },
+
+    "ClF3_Hydrogen": {
+      "name": "三フッ化塩素 + 液体水素",
+      "isp_sec": 450.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "NF3_Hydrogen": {
+      "name": "三フッ化窒素 + 液体水素",
+      "isp_sec": 380.0,
+      "mixture_ratio_o_f": 6.0,
+      "state_type": "液体"
+    },
+
+    "N2O4_Diborane": {
+      "name": "四酸化二窒素 + 二ホウ化水素",
+      "isp_sec": 380.0,
+      "mixture_ratio_o_f": 7.0,
+      "state_type": "液体"
+    },
+
+    "LOX_Aniline": {
+      "name": "液体酸素 + アニリン",
+      "isp_sec": 350.0,
+      "mixture_ratio_o_f": 4.0,
+      "state_type": "液体"
+    },
+
+    "LOX_ClF3": {
+      "name": "液体酸素 + 三フッ化塩素",
+      "isp_sec": 420.0,
+      "mixture_ratio_o_f": 20.0,
+      "state_type": "液体"
+    },
+
+    "LOX_NF3": {
+      "name": "液体酸素 + 三フッ化窒素",
+      "isp_sec": 350.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "液体"
+    },
+
+    "LOX_H2O2": {
+      "name": "液体酸素 + 高濃度過酸化水素",
+      "isp_sec": 300.0,
+      "mixture_ratio_o_f": 10.0,
+      "state_type": "液体"
+    }
+  }
+}
