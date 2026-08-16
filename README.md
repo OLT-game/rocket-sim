@@ -573,7 +573,7 @@ rocket_full_graph_4k.png
 
 This project is licensed under the **MIT License**.
 
-詳細は [`LICENSE`](LICENSE) を参照してください。
+詳細は [`LICENSE`](License) を参照してください。
 
 ---
 
