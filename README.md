@@ -1,4 +1,4 @@
-# 🚀 Space Rocket Altitude & Fuel Efficiency Score Simulator
+# 🚀 Space Rocket Altitude & Fuel Efficiency Score Simulator v2.03
 
 真空中のロケット上昇運動を数値計算し、**推進剤プリセットごとの最高高度・評価スコア・推進剤消費量**を比較する Python 製シミュレータです。
 
