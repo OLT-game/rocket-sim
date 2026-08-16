@@ -1,7 +1,7 @@
 # 🚀 宇宙ロケット高度・燃費スコアシミュレータ
 *(Space Rocket Altitude & Fuel Efficiency Score Simulator)*
 
-NASA物理モデル（真空・地球の万有引力）に基づき、異なる推進剤（燃料＋酸化剤）の組み合わせにおけるロケットの最高高度および燃費スコアを比較計算・可視化するPython GUIアプリケーションです。
+NASA物理モデル（真空・地球の万有引力）に基づき、異なる推進剤（燃料＋酸化剤）の組み合わせにおけるロケットの最高高度および燃費スコアを比較するためのシミュレータです。
 
 ---
 
@@ -85,34 +85,42 @@ python main.py
 本シミュレータは、宇宙工学における以下の基礎方程式に基づき数理モデルを構築しています。
 
 ### 1. ツィオルコフスキーのロケット方程式 (Tsiolkovsky Rocket Equation)
-推進剤の噴射による実効射出速度 $c$ およびデルタV（速度増分） $\Delta v$ を算出します。
+推進剤の噴射による実効射出速度 c およびデルタV（速度増分） Δv を算出します。
 
 * **実効射出速度**:
-  $$c = I_{sp} \cdot g_0$$
-  *( $I_{sp}$: 比推力 [s], $g_0$: 地表の標準重力加速度 $9.80665 \text{ m/s}^2$ )*
+
+  c = I_sp · g_0
+
+  ( `I_sp`: 比推力 [s], `g_0`: 地表の標準重力加速度 9.80665 m/s^2 )
 
 * **デルタV**:
-  $$\Delta v = c \cdot \ln\left(\frac{m_{\text{start}}}{m_{\text{dry}}}\right) = I_{sp} \cdot g_0 \cdot \ln\left(\frac{m_{\text{start}}}{m_{\text{dry}}}\right)$$
+
+  Δv = c · ln(m_start / m_dry) = I_sp · g_0 · ln(m_start / m_dry)
 
 ### 2. 推進剤消費率と質量変化
-* **推進剤消費率 $\dot{m}$**:
-  $$\dot{m} = \frac{F_{\text{thrust}}}{c} = \frac{F_{\text{thrust}}}{I_{sp} \cdot g_0}$$
-* **時間変化に伴う質量 $m(t)$**:
-  $$m(t) = m_{\text{dry}} + m_{\text{propellant}}(t)$$
+* **推進剤消費率 mdot**:
+
+  mdot = F_thrust / c = F_thrust / (I_sp · g_0)
+
+* **時間変化に伴う質量 m(t)**:
+
+  m(t) = m_dry + m_propellant(t)
 
 ### 3. ニュートンの万有引力の法則
 高度上昇に伴う地球重力の減衰（逆二乗則）を計算します。
 
-* **高度 $h$（中心距離 $r = R_{\text{earth}} + h$）における重力加速度 $g(r)$**:
-  $$g(r) = \frac{G \cdot M_{\text{earth}}}{r^2}$$
-  *( $G$: 万有引力定数 $6.67430 \times 10^{-11} \text{ m}^3/\text{kg}\cdot\text{s}^2$, $M_{\text{earth}}$: 地球質量 $5.972 \times 10^{24} \text{ kg}$, $R_{\text{earth}}$: 地球半径 $6,371,000 \text{ m}$ )*
+* **高度 h（中心距離 r = R_earth + h）における重力加速度 g(r)**:
+
+  g(r) = G · M_earth / r^2
+
+  ( `G`: 万有引力定数 6.67430e-11 m^3/kg·s^2, `M_earth`: 地球質量 5.972e24 kg, `R_earth`: 地球半径 6,371,000 m )
 
 ### 4. 運動方程式（オイラー法による数値積分）
-加速度 $a(t)$ から速度 $v(t)$ および高度 $r(t)$ をタイムステップ $\Delta t$ ごとに順次更新します。
+加速度 a(t) から速度 v(t) および高度 r(t) をタイムステップ Δt ごとに順次更新します。
 
-* **加速度**: $a(t) = \frac{F_{\text{thrust}}}{m(t)} - g(r)$
-* **速度更新**: $v(t + \Delta t) = v(t) + a(t) \cdot \Delta t$
-* **位置（高度）更新**: $r(t + \Delta t) = r(t) + v(t) \cdot \Delta t$
+* **加速度**: a(t) = F_thrust / m(t) - g(r)
+* **速度更新**: v(t + Δt) = v(t) + a(t) · Δt
+* **位置（高度）更新**: r(t + Δt) = r(t) + v(t) · Δt
 
 ---
 
