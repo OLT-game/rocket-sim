@@ -33,7 +33,7 @@ pip install matplotlib psutil
 
 ### 1. リポジトリのクローン
 ```bash
-git clone https://github.com/your-username/rocket-simulator.git
+git clone https://github.com/OLT_game/rocket-sim.git
 cd rocket-simulator
 ```
 
