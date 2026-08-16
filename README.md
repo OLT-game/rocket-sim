@@ -85,34 +85,34 @@ python main.py
 本シミュレータは、宇宙工学における以下の基礎方程式に基づき数理モデルを構築しています。
 
 ### 1. ツィオルコフスキーのロケット方程式 (Tsiolkovsky Rocket Equation)
-推進剤の噴射による実効射出速度 $$c$$ およびデルタV（速度増分） $$\Delta v$$ を算出します。
+推進剤の噴射による実効射出速度 $c$ およびデルタV（速度増分） $\Delta v$ を算出します。
 
 * **実効射出速度**:
   $$c = I_{sp} \cdot g_0$$
-  *( $$I_{sp}$$: 比推力 [s], $$g_0$$: 地表の標準重力加速度 $$9.80665 \text{ m/s}^2$$ )*
+  *( $I_{sp}$: 比推力 [s], $g_0$: 地表の標準重力加速度 $9.80665 \text{ m/s}^2$ )*
 
 * **デルタV**:
   $$\Delta v = c \cdot \ln\left(\frac{m_{\text{start}}}{m_{\text{dry}}}\right) = I_{sp} \cdot g_0 \cdot \ln\left(\frac{m_{\text{start}}}{m_{\text{dry}}}\right)$$
 
 ### 2. 推進剤消費率と質量変化
-* **推進剤消費率 $$\dot{m}$$**:
+* **推進剤消費率 $\dot{m}$**:
   $$\dot{m} = \frac{F_{\text{thrust}}}{c} = \frac{F_{\text{thrust}}}{I_{sp} \cdot g_0}$$
-* **時間変化に伴う質量 $$m(t)$$**:
+* **時間変化に伴う質量 $m(t)$**:
   $$m(t) = m_{\text{dry}} + m_{\text{propellant}}(t)$$
 
 ### 3. ニュートンの万有引力の法則
 高度上昇に伴う地球重力の減衰（逆二乗則）を計算します。
 
-* **高度 $$h$$（中心距離 $$r = R_{\text{earth}} + h$$）における重力加速度 $$g(r)$$**:
+* **高度 $h$（中心距離 $r = R_{\text{earth}} + h$）における重力加速度 $g(r)$**:
   $$g(r) = \frac{G \cdot M_{\text{earth}}}{r^2}$$
-  *( $$G$$: 万有引力定数 $$6.67430 \times 10^{-11} \text{ m}^3/\text{kg}\cdot\text{s}^2$$, $$M_{\text{earth}}$$: 地球質量 $$5.972 \times 10^{24} \text{ kg}$$, $$R_{\text{earth}}$$: 地球半径 $$6,371,000 \text{ m}$$ )*
+  *( $G$: 万有引力定数 $6.67430 \times 10^{-11} \text{ m}^3/\text{kg}\cdot\text{s}^2$, $M_{\text{earth}}$: 地球質量 $5.972 \times 10^{24} \text{ kg}$, $R_{\text{earth}}$: 地球半径 $6,371,000 \text{ m}$ )*
 
 ### 4. 運動方程式（オイラー法による数値積分）
-加速度 $$a(t)$$ から速度 $$v(t)$$ および高度 $$r(t)$$ をタイムステップ $$\Delta t$$ ごとに順次更新します。
+加速度 $a(t)$ から速度 $v(t)$ および高度 $r(t)$ をタイムステップ $\Delta t$ ごとに順次更新します。
 
-* **加速度**: $$a(t) = \frac{F_{\text{thrust}}}{m(t)} - g(r)$$
-* **速度更新**: $$v(t + \Delta t) = v(t) + a(t) \cdot \Delta t$$
-* **位置（高度）更新**: $$r(t + \Delta t) = r(t) + v(t) \cdot \Delta t$$
+* **加速度**: $a(t) = \frac{F_{\text{thrust}}}{m(t)} - g(r)$
+* **速度更新**: $v(t + \Delta t) = v(t) + a(t) \cdot \Delta t$
+* **位置（高度）更新**: $r(t + \Delta t) = r(t) + v(t) \cdot \Delta t$
 
 ---
 
