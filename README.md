@@ -119,7 +119,7 @@ Windows
 mkdir C:\rocket-project
 cd C:\rocket-project
 
-git clone --filter=blob:none --sparse <https://github.com/OLT-game/rocket-sim/tree/main>
+git clone --filter=blob:none --sparse https://github.com/OLT-game/rocket-sim
 
 cd <rocket-sim>
 
