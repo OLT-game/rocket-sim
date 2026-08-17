@@ -116,16 +116,14 @@ rocket-sim/
 
 Windows
 ```bash
-mkdir rocket-sim-sub && cd rocket-sim-sub
-git init
+mkdir C:\rocket-project
+cd C:\rocket-project
 
-git remote add origin https://github.com
+git clone --filter=blob:none --sparse <https://github.com/OLT-game/rocket-sim/tree/main>
 
-git config core.sparseCheckout true
+cd <rocket-sim>
 
-echo rocket-sim/* >> .git/info/sparse-checkout
-
-git pull origin main
+git sparse-checkout set rocket-sim
 ```
 
 Linux / Mac
