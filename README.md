@@ -121,7 +121,7 @@ cd C:\rocket-project
 
 git clone --filter=blob:none --sparse https://github.com/OLT-game/rocket-sim
 
-cd <rocket-sim>
+cd rocket-sim
 
 git sparse-checkout set rocket-sim
 ```
