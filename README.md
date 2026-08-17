@@ -114,9 +114,33 @@ rocket-sim/
 
 ### 1. Clone
 
+Windows
 ```bash
-git clone https://github.com/OLT_game/rocket-sim.git
-cd rocket-sim
+mkdir rocket-sim-sub && cd rocket-sim-sub
+git init
+
+git remote add origin https://github.com
+
+git config core.sparseCheckout true
+
+echo rocket-sim/* >> .git/info/sparse-checkout
+
+git pull origin main
+```
+
+Linux / Mac
+
+```bash
+mkdir rocket-sim-sub && cd rocket-sim-sub
+git init
+
+git remote add origin https://github.com/OLT_game/rocket-sim.git
+
+git config core.sparseCheckout true
+
+echo "rocket-sim/*" >> .git/info/sparse-checkout
+
+git pull origin main
 ```
 
 ### 2. Install dependencies
