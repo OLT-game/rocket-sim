@@ -1,0 +1,54 @@
+{
+  "rocket_common_specs": {
+    "dry_mass_kg": 1000.0,
+    "total_propellant_mass_kg": 10000.0,
+    "engine_thrust_N": 100000.0
+  },
+  "simulation_settings": {
+    "dt": 0.01,
+    "g0": 9.80665,
+    "earth_radius_m": 6371000.0
+  },
+  "propellant_presets": {
+    "methalox": {
+      "name": "メタン＋液体酸素 (Methalox)",
+      "Isp_s": 380.0,
+      "isp_sec": 380.0,
+      "of_ratio": 3.5,
+      "mixture_ratio_o_f": 3.5,
+      "burn_time_s": 100.0,
+      "mass_flow_rate_kg_s": 100.0,
+      "state_type": "液体"
+    },
+    "hydrolox": {
+      "name": "水素＋液体酸素 (Hydrolox)",
+      "Isp_s": 450.0,
+      "isp_sec": 450.0,
+      "of_ratio": 6.0,
+      "mixture_ratio_o_f": 6.0,
+      "burn_time_s": 100.0,
+      "mass_flow_rate_kg_s": 100.0,
+      "state_type": "液体"
+    },
+    "ethanol_air": {
+      "name": "エタノール＋空気 (Ethanol/Air)",
+      "Isp_s": 250.0,
+      "isp_sec": 250.0,
+      "of_ratio": 9.0,
+      "mixture_ratio_o_f": 9.0,
+      "burn_time_s": 100.0,
+      "mass_flow_rate_kg_s": 100.0,
+      "state_type": "液体"
+    },
+    "kerolox": {
+      "name": "ケロシン＋液体酸素 (Kerolox)",
+      "Isp_s": 310.0,
+      "isp_sec": 310.0,
+      "of_ratio": 2.5,
+      "mixture_ratio_o_f": 2.5,
+      "burn_time_s": 100.0,
+      "mass_flow_rate_kg_s": 100.0,
+      "state_type": "液体"
+    }
+  }
+}
